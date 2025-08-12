@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#111827" />
+    <title>Wheel of Doom — Spin for Chores & Silly Tasks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="app-header">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">
+            <img class="logo-img" src="https://fbi.cults3d.com/uploaders/35081485/illustration-file/4caf661b-cdb0-464c-a455-9a035b2646c6/png-transparent-doom-ii-final-doom-doom-3-doom-text-logo-video-game.png" alt="DOOM styled logo" />
+          </div>
+          <div class="title-wrap">
+            <h1 class="title">Wheel of Doom</h1>
+            <p class="subtitle">Spin to get a fun chore or silly task!</p>
+          </div>
+        </div>
+        <div class="controls">
+          <button id="muteBtn" class="btn btn-ghost" aria-pressed="false" aria-label="Toggle sound">🔊</button>
+        </div>
+      </header>
+
+      <main class="game">
+        <div class="wheel-wrap">
+          <canvas id="wheelCanvas" width="600" height="600" aria-label="Wheel of tasks" role="img"></canvas>
+          <div class="pointer" aria-hidden="true"></div>
+        </div>
+        <div class="actions">
+          <button id="spinBtn" class="btn btn-primary">SPIN</button>
+        </div>
+        <section id="result" class="result" aria-live="polite" aria-atomic="true"></section>
+      </main>
+
+      <footer class="footer">
+        <button id="customizeBtn" class="btn btn-ghost">Customize</button>
+        <p class="credit">Made with ❤️ for kids. Be kind, be safe, have fun!</p>
+      </footer>
+    </div>
+
+    <!-- Prize Overlay -->
+    <div id="prizeOverlay" class="prize-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+      <canvas id="confettiCanvas" class="confetti-canvas" width="800" height="600" aria-hidden="true"></canvas>
+      <div class="prize-card" role="document">
+        <div class="prize-burst" aria-hidden="true"></div>
+        <h2 class="prize-title">Your consequence is</h2>
+        <p id="prizeText" class="prize-text">Jammy Time (PJs all day!)</p>
+        <div class="prize-actions">
+          <button id="prizeCloseBtn" class="btn btn-secondary">Spin Again</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editor Overlay -->
+    <div id="editorOverlay" class="editor-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="editor-panel" role="document">
+        <div class="editor-head">
+          <h2>Customize Consequences</h2>
+          <button id="editorCloseBtn" class="btn btn-ghost" aria-label="Close">✕</button>
+        </div>
+        <div class="editor-body">
+          <div id="editorList" class="editor-list" aria-live="polite"></div>
+          <div class="editor-actions">
+            <button id="addItemBtn" class="btn btn-ghost">+ Add</button>
+            <button id="resetBtn" class="btn btn-ghost">Reset</button>
+            <div class="grow"></div>
+            <button id="saveBtn" class="btn btn-primary">Save</button>
+          </div>
+          <p class="editor-hint">Tip: Use emoji for the wheel icon. The label only shows after a spin.</p>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+  </html>
+
