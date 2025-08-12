@@ -9,6 +9,8 @@ dist/
 .vite/
 .parcel-cache/
 .cache/
+package-lock.json
+package.json
 
 # OS/editor
 .DS_Store
