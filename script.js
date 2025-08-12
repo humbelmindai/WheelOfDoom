@@ -23,6 +23,7 @@ const resultEl = document.getElementById('result');
 const muteBtn = document.getElementById('muteBtn');
 const prizeOverlay = document.getElementById('prizeOverlay');
 const prizeText = document.getElementById('prizeText');
+const prizeSpinBtn = document.getElementById('prizeSpinBtn');
 const prizeCloseBtn = document.getElementById('prizeCloseBtn');
 const confettiCanvas = document.getElementById('confettiCanvas');
 const confettiCtx = confettiCanvas.getContext('2d');
@@ -405,19 +406,18 @@ muteBtn.addEventListener('click', () => {
   sounds.setEnabled(next);
 });
 
-prizeCloseBtn.addEventListener('click', () => {
+prizeSpinBtn.addEventListener('click', () => {
   hidePrize();
   // start a new spin shortly after the overlay closes
-  setTimeout(() => {
-    spin();
-  }, 250);
+  setTimeout(() => { spin(); }, 200);
+});
+
+prizeCloseBtn.addEventListener('click', () => {
+  hidePrize();
 });
 
 prizeOverlay.addEventListener('click', (e) => {
-  if (e.target === prizeOverlay) {
-    hidePrize();
-    setTimeout(() => { spin(); }, 250);
-  }
+  if (e.target === prizeOverlay) hidePrize();
 });
 
 // Kick things off
